@@ -1,91 +1,169 @@
-%for table persons 
+-- Populate the `persons` table
 INSERT INTO public.persons (personal_number, name, type)
-VALUES 
+VALUES
 ('123456789012', 'John Doe', 'Student'),
 ('234567890123', 'Jane Smith', 'Instructor'),
 ('345678901234', 'Alice Johnson', 'Student'),
-('456789012345', 'Bob Brown', 'Parent');
+('456789012345', 'Bob Brown', 'Parent'),
+('567890123456', 'Emma Davis', 'Student'),
+('678901234567', 'Chris Wilson', 'Instructor'),
+('789012345678', 'Sophia Martinez', 'Student'),
+('890123456789', 'Liam White', 'Parent'),
+('901234567890', 'Olivia Harris', 'Instructor'),
+('012345678901', 'Ethan King', 'Student'),
+('098765432112', 'Chloe Green', 'Student'),
+('112233445566', 'Isabella Adams', 'Parent'),
+('223344556677', 'Mia Stewart', 'Instructor'),
+('334455667788', 'Charlotte Bell', 'Student'),
+('445566778899', 'Henry Young', 'Student'),
+('556677889900', 'Ella Brooks', 'Parent'),
+('667788990011', 'James Carter', 'Instructor'),
+('778899001122', 'Lucas Mitchell', 'Student'),
+('889900112233', 'Amelia Taylor', 'Student'),
+('990011223344', 'Lily Foster', 'Parent');
 
-
-
-% for contact detail table 
+-- Populate the `contact_details` table
 INSERT INTO public.contact_details (contact_type, value, person_id)
 VALUES
 ('Email', 'john.doe@example.com', 1),
 ('Phone', '123-456-7890', 1),
 ('Email', 'jane.smith@example.com', 2),
-('Phone', '234-567-8901', 3);
+('Phone', '234-567-8901', 3),
+('Email', 'emma.davis@example.com', 5),
+('Phone', '567-890-1234', 5),
+('Email', 'chris.wilson@example.com', 6),
+('Phone', '678-901-2345', 6),
+('Email', 'sophia.martinez@example.com', 7),
+('Phone', '789-012-3456', 7),
+('Email', 'olivia.harris@example.com', 9),
+('Phone', '890-123-4567', 9),
+('Email', 'ethan.king@example.com', 10),
+('Phone', '901-234-5678', 10),
+('Email', 'mia.stewart@example.com', 13),
+('Phone', '123-555-6789', 13),
+('Email', 'charlotte.bell@example.com', 14),
+('Phone', '321-654-9870', 14),
+('Email', 'henry.young@example.com', 15),
+('Phone', '456-789-0123', 15);
 
-
-%for lessons table 
-INSERT INTO public.lessons (level, person_id)
-VALUES
-(1, 1),
-(2, 2),
-(3, 1),
-(1, 3);
-
-
-for ensemble table 
-INSERT INTO public.ensemble (genre, max_students, min_students, level, person_id)
-VALUES
-('Classical', 10, 5, 2, 2),
-('Jazz', 12, 6, 3, 2);
-
-
-for fees table
+-- Populate the `fees` table
 INSERT INTO public.fees (type, start_date, fee)
 VALUES
-('Monthly', '2024-01-01 00:00:00+00', 200.0),
-('Yearly', '2024-01-01 00:00:00+00', 2200.0);
+('individual-lessons', '2024-01-01 00:00:00+00', 50.0),
+('group-lessons', '2024-01-01 00:00:00+00', 75.0),
+('ensembles', '2024-01-01 00:00:00+00', 100.0),
+('individual-lessons', '2024-03-01 00:00:00+00', 55.0),
+('group-lessons', '2024-03-01 00:00:00+00', 80.0),
+('ensembles', '2024-03-01 00:00:00+00', 110.0),
+('rental-piano', '2024-01-01 00:00:00+00', 25.0),
+('rental-violin', '2024-01-01 00:00:00+00', 20.0),
+('rental-guitar', '2024-01-01 00:00:00+00', 18.0),
+('rental-drums', '2024-01-01 00:00:00+00', 22.0);
 
+-- Populate the `lessons` table
+INSERT INTO public.lessons (level, person_id)
+VALUES
+(1, 2),
+(2, 6),
+(3, 9),
+(1, 13),
+(3, 10),
+(2, 2),
+(1, 6),
+(3, 1),
+(2, 14),
+(1, 18),
+(3, 19),
+(1, 6),
+(2, 9),
+(3, 5),
+(1, 15),
+(2, 8),
+(3, 13),
+(1, 14),
+(2, 16),
+(3, 19);
 
-for group lessons 
+-- Populate the `group_lessons` table
 INSERT INTO public.group_lessons (max_students, min_students, level, person_id)
 VALUES
 (20, 5, 1, 2),
-(15, 3, 2, 3);
+(15, 3, 2, 6),
+(10, 4, 3, 13),
+(25, 10, 1, 10),
+(30, 12, 2, 9),
+(12, 5, 3, 6);
 
-
-for individual lessons
+-- Populate the `individual_lessons` table
 INSERT INTO public.individual_lessons (instrument, level, person_id)
 VALUES
 ('Piano', 1, 1),
-('Violin', 2, 3);
+('Violin', 2, 3),
+('Guitar', 3, 5),
+('Drums', 1, 6),
+('Flute', 2, 7),
+('Trumpet', 3, 8),
+('Cello', 1, 15),
+('Saxophone', 2, 16);
 
+-- Populate the `ensemble` table
+INSERT INTO public.ensemble (genre, max_students, min_students, level, person_id)
+VALUES
+('Classical', 10, 5, 1, 2),
+('Jazz', 12, 6, 2, 3),
+('Rock', 15, 7, 3, 4),
+('Pop', 20, 8, 1, 9),
+('Blues', 25, 10, 2, 7);
 
-for instrument table
-
+-- Populate the `instruments` table
 INSERT INTO public.instruments (type, brand, fee, rented)
 VALUES
-('Piano', 'Yamaha', 50.0, B'0'),
-('Violin', 'Stradivarius', 70.0, B'1');
+('Piano', 'Yamaha', 25.0, B'0'),
+('Violin', 'Stradivarius', 30.0, B'1'),
+('Guitar', 'Fender', 20.0, B'0'),
+('Drums', 'Pearl', 15.0, B'0'),
+('Flute', 'Yamaha', 18.0, B'1'),
+('Trumpet', 'Bach', 25.0, B'0'),
+('Cello', 'Luthier', 30.0, B'0'),
+('Saxophone', 'Selmer', 28.0, B'1');
 
-for rentals table
+-- Populate the `rentals` table
 INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id)
 VALUES
 ('2024-01-15 09:00:00+00', '2024-02-15 09:00:00+00', 1, 1),
-('2024-03-01 10:00:00+00', NULL, 3, 2);
+('2024-03-01 10:00:00+00', NULL, 3, 2),
+('2024-02-10 10:00:00+00', '2024-03-10 10:00:00+00', 5, 3),
+('2024-01-01 10:00:00+00', '2024-01-31 10:00:00+00', 7, 5),
+('2024-02-15 10:00:00+00', NULL, 9, 7);
 
-
-for schedule table
-
+-- Populate the `schedule` table
 INSERT INTO public.schedule (starttime, endtime, lesson_id)
 VALUES
 ('2024-02-01 10:00:00+00', '2024-02-01 11:00:00+00', 1),
-('2024-02-02 12:00:00+00', '2024-02-02 13:00:00+00', 2);
+('2024-02-02 12:00:00+00', '2024-02-02 13:00:00+00', 2),
+('2024-02-03 14:00:00+00', '2024-02-03 15:00:00+00', 3),
+('2024-02-04 16:00:00+00', '2024-02-04 17:00:00+00', 4);
 
-
-for sibling table
+-- Populate the `siblings` table
 INSERT INTO public.siblings (person_id, sibling)
 VALUES
 (1, 3),
-(3, 1);
+(3, 1),
+(5, 7),
+(7, 5),
+(9, 11),
+(11, 9);
 
-
-for enrollments
+-- Populate the `enrollments` table
 INSERT INTO public.enrollments (person_id, lesson_id)
 VALUES
 (1, 1),
 (3, 2),
-(2, 1);
+(5, 3),
+(7, 4),
+(9, 5),
+(11, 6),
+(13, 7),
+(15, 8),
+(17, 9),
+(19, 10);
