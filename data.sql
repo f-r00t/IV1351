@@ -5,7 +5,7 @@
 -- Dumped from database version 17.1 (Postgres.app)
 -- Dumped by pg_dump version 17.0
 
--- Started on 2024-11-21 20:26:50 CET
+-- Started on 2024-11-29 20:46:38 CET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -20,312 +20,423 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 3744 (class 0 OID 16462)
+-- TOC entry 3809 (class 0 OID 16754)
+-- Dependencies: 239
+-- Data for Name: contact_type; Type: TABLE DATA; Schema: public; Owner: harry
+--
+
+COPY public.contact_type (contact_type_id, contact_type) FROM stdin;
+1	email
+2	address
+3	phone
+4	contact_person_email
+5	contact_person_address
+6	contact_person_phone
+7	contact_person_name
+\.
+
+
+--
+-- TOC entry 3811 (class 0 OID 16796)
+-- Dependencies: 241
+-- Data for Name: person_type; Type: TABLE DATA; Schema: public; Owner: harry
+--
+
+COPY public.person_type (person_type_id, person_type) FROM stdin;
+1	instructor
+2	student
+3	administrator
+\.
+
+
+--
+-- TOC entry 3788 (class 0 OID 16391)
+-- Dependencies: 218
+-- Data for Name: person; Type: TABLE DATA; Schema: public; Owner: harry
+--
+
+COPY public.person (person_id, personal_number, name, teaches_ensamble, person_type) FROM stdin;
+22	192310121234	John Andersson	1	1
+23	198705232345	Sara Eriksson	\N	2
+24	197603183456	Alice Johansson	\N	3
+25	195002254567	Bob Karlsson	0	1
+26	200104125678	Emma Larsson	\N	2
+27	196712306789	Michael Svensson	1	1
+28	198210051234	Olivia Gustafsson	\N	2
+29	195501171234	William Nilsson	\N	3
+30	200311213456	Sophia Persson	0	1
+31	198905062345	James Olsson	\N	2
+32	197102251234	Isabella Lindberg	1	1
+33	198410231234	Benjamin Andersson	\N	2
+34	197509182345	Mia Larsson	\N	3
+35	200510101234	Lucas Holm	0	1
+36	196206052345	Charlotte Nilsson	\N	2
+37	198503151234	Henry Dahl	1	1
+38	199711072345	Amelia Johansson	\N	2
+39	197906222345	Sebastian Eriksson	\N	3
+40	198409172345	Ava Lind	0	1
+41	200604042345	Elijah Wallin	\N	2
+42	199508122345	Harper Svensson	1	1
+43	198906072345	Daniel Olsson	\N	2
+44	200311212345	Evelyn Karlsson	\N	3
+45	197711282345	Matthew Berg	0	1
+46	199801151234	Abigail Larsson	\N	2
+\.
+
+
+--
+-- TOC entry 3794 (class 0 OID 16462)
 -- Dependencies: 224
 -- Data for Name: contact_details; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
-COPY public.contact_details (contact_type, value, person_id) FROM stdin;
-email	john.doe@example.com	1
-phone	+46701234567	1
-address	Main Street 1, 12345 Stockholm	1
-email	jane.smith@example.com	2
-phone	+46702345678	2
-email	alice.johnson@example.com	3
-address	Elm Street 15, 54321 Gothenburg	3
-email	bob.brown@example.com	4
-phone	+46703456789	4
-address	Pine Avenue 22, 67890 Malmö	4
-email	emma.davis@example.com	5
-email	chris.wilson@example.com	6
-phone	+46704567890	6
-email	sophia.martinez@example.com	7
-address	Birch Road 5, 23456 Uppsala	7
-email	liam.white@example.com	8
-phone	+46705678901	8
-address	Cedar Lane 8, 78901 Lund	8
-email	olivia.harris@example.com	9
-address	Willow Street 3, 34567 Helsingborg	9
-email	ethan.king@example.com	10
-email	chloe.green@example.com	11
-phone	+46706789012	11
-email	isabella.adams@example.com	12
-phone	+46707890123	12
-email	mia.stewart@example.com	13
-email	charlotte.bell@example.com	14
-address	Spruce Way 10, 45678 Västerås	14
-email	henry.young@example.com	15
-phone	+46708901234	15
-email	ella.brooks@example.com	16
-address	Maple Court 6, 56789 Örebro	16
-email	james.carter@example.com	17
-email	lucas.mitchell@example.com	18
-phone	+46709012345	18
-address	Poplar Avenue 7, 67891 Norrköping	18
-email	amelia.taylor@example.com	19
-phone	+46700123456	19
-email	lily.foster@example.com	20
-address	Oak Street 12, 78912 Linköping	20
+COPY public.contact_details (value, person_id, contact_type_id) FROM stdin;
+john.andersson@example.com	22	1
+Sara.Eriksson@example.com	23	1
+alice.johansson@example.com	24	1
+bob.karlsson@example.com	25	1
+emma.larsson@example.com	26	1
+michael.svensson@example.com	27	1
+olivia.gustafsson@example.com	28	1
+william.nilsson@example.com	29	1
+sophia.persson@example.com	30	1
+james.olsson@example.com	31	1
+isabella.lindberg@example.com	32	1
+benjamin.andersson@example.com	33	1
+mia.larsson@example.com	34	1
+lucas.holm@example.com	35	1
+charlotte.nilsson@example.com	36	1
+henry.dahl@example.com	37	1
+amelia.johansson@example.com	38	1
+sebastian.eriksson@example.com	39	1
+ava.lind@example.com	40	1
+elijah.wallin@example.com	41	1
+harper.svensson@example.com	42	1
+daniel.olsson@example.com	43	1
+evelyn.karlsson@example.com	44	1
+matthew.berg@example.com	45	1
+abigail.larsson@example.com	46	1
+Storgatan 1, 12345 Stockholm, Sweden	22	2
+Hantverkargatan 10, 11223 Stockholm, Sweden	23	2
+Kungsgatan 3, 22334 Stockholm, Sweden	24	2
+Västerlånggatan 5, 12345 Stockholm, Sweden	25	2
+Östermalmstorg 2, 11450 Stockholm, Sweden	26	2
+Götgatan 6, 11645 Stockholm, Sweden	27	2
+Sankt Eriksgatan 12, 11234 Stockholm, Sweden	28	2
+Torsgatan 15, 11356 Stockholm, Sweden	29	2
+Vikingagatan 20, 11356 Stockholm, Sweden	30	2
+Södra Förstadsgatan 10, 21143 Malmö, Sweden	31	2
+Storgatan 3, 41120 Göteborg, Sweden	32	2
+Hagagatan 14, 11347 Stockholm, Sweden	33	2
+Björkgatan 2, 21632 Malmö, Sweden	34	2
+Folkungagatan 7, 11662 Stockholm, Sweden	35	2
+Sibyllegatan 6, 11442 Stockholm, Sweden	36	2
+Drottninggatan 8, 11151 Stockholm, Sweden	37	2
+Bohusgatan 3, 41318 Göteborg, Sweden	38	2
+Västra Hamngatan 1, 41117 Göteborg, Sweden	39	2
+Stora Nygatan 10, 11127 Stockholm, Sweden	40	2
+Birkagatan 9, 11339 Stockholm, Sweden	41	2
+Lilla Varvsgatan 12, 21175 Malmö, Sweden	42	2
+Lilla Torg 3, 21134 Malmö, Sweden	43	2
+Skånegatan 5, 21126 Malmö, Sweden	44	2
+Skeppsbrokajen 4, 21120 Malmö, Sweden	45	2
+Sjövägen 1, 22100 Lund, Sweden	46	2
+0701234567	22	3
+0702345678	23	3
+0703456789	24	3
+0704567890	25	3
+0705678901	26	3
+0706789012	27	3
+0707890123	28	3
+0708901234	29	3
+0709012345	30	3
+0700123456	31	3
+0701231234	32	3
+0702342345	33	3
+0703453456	34	3
+0704564567	35	3
+0705675678	36	3
+0706786789	37	3
+0707897890	38	3
+0708908901	39	3
+0709019012	40	3
+0700120123	41	3
+0701231234	42	3
+0702342345	43	3
+0703453456	44	3
+0704564567	45	3
+0705675678	46	3
+john.andersson@family.com	22	4
+sara.eriksson@family.com	23	4
+alice.johansson@family.com	24	4
+bob.karlsson@family.com	25	4
+emma.larsson@family.com	26	4
+michael.svensson@family.com	27	4
+olivia.gustafsson@family.com	28	4
+william.nilsson@family.com	29	4
+sophia.persson@family.com	30	4
+james.olsson@family.com	31	4
+isabella.lindberg@family.com	32	4
+benjamin.andersson@family.com	33	4
+mia.larsson@family.com	34	4
+lucas.holm@family.com	35	4
+charlotte.nilsson@family.com	36	4
+henry.dahl@family.com	37	4
+amelia.johansson@family.com	38	4
+sebastian.eriksson@family.com	39	4
+ava.lind@family.com	40	4
+elijah.wallin@family.com	41	4
+harper.svensson@family.com	42	4
+daniel.olsson@family.com	43	4
+evelyn.karlsson@family.com	44	4
+matthew.berg@family.com	45	4
+abigail.larsson@family.com	46	4
+Storgatan 1, 12345	22	5
+Hantverkargatan 10, 11223	23	5
+Kungsgatan 3, 22334	24	5
+Västerlånggatan 5, 12345	25	5
+Östermalmstorg 2, 11450	26	5
+Götgatan 6, 11645	27	5
+Sankt Eriksgatan 12, 11234	28	5
+Torsgatan 15, 11356	29	5
+Vikingagatan 20, 11356	30	5
+Södra Förstadsgatan 10, 21143	31	5
+Storgatan 3, 41120	32	5
+Hagagatan 14, 11347	33	5
+Björkgatan 2, 21632	34	5
+Folkungagatan 7, 11662	35	5
+Sibyllegatan 6, 11442	36	5
+Drottninggatan 8, 11151	37	5
+Bohusgatan 3, 41318	38	5
+Västra Hamngatan 1, 41117	39	5
+Stora Nygatan 10, 11127	40	5
+Birkagatan 9, 11339	41	5
+Lilla Varvsgatan 12, 21175	42	5
+Lilla Torg 3, 21134	43	5
+Skånegatan 5, 21126	44	5
+Skeppsbrokajen 4, 21120	45	5
+Sjövägen 1, 22100	46	5
+0701234567	22	6
+0702345678	23	6
+0703456789	24	6
+0704567890	25	6
+0705678901	26	6
+0706789012	27	6
+0707890123	28	6
+0708901234	29	6
+0709012345	30	6
+0700123456	31	6
+0701234567	32	6
+0702345678	33	6
+0703456789	34	6
+0704567890	35	6
+0705678901	36	6
+0706789012	37	6
+0707890123	38	6
+0708901234	39	6
+0709012345	40	6
+0700123456	41	6
+0701234567	42	6
+0702345678	43	6
+0703456789	44	6
 \.
 
 
 --
--- TOC entry 3739 (class 0 OID 16417)
--- Dependencies: 219
--- Data for Name: enrollments; Type: TABLE DATA; Schema: public; Owner: harry
+-- TOC entry 3804 (class 0 OID 16712)
+-- Dependencies: 234
+-- Data for Name: genre; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
-COPY public.enrollments (type, person_id, lesson_id) FROM stdin;
-group	3	14
-group	7	15
-group	10	16
-group	11	17
-group	5	18
-group	8	19
-individual	3	1
-individual	7	2
-individual	10	3
-individual	11	4
-individual	5	5
-individual	8	6
-individual	15	7
-individual	20	8
-ensemble	3	58
-ensemble	7	59
-ensemble	10	60
-ensemble	11	61
-ensemble	5	62
-ensemble	8	63
+COPY public.genre (genre_id, genre) FROM stdin;
+1	Classical
+2	Jazz
+3	Rock
+4	Pop
+5	Hip-Hop
+6	Blues
+7	Country
+8	Electronic
+9	Reggae
+10	Folk
 \.
 
 
 --
--- TOC entry 3738 (class 0 OID 16391)
--- Dependencies: 218
--- Data for Name: persons; Type: TABLE DATA; Schema: public; Owner: harry
+-- TOC entry 3800 (class 0 OID 16652)
+-- Dependencies: 230
+-- Data for Name: instrument_type; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
-COPY public.persons (person_id, personal_number, name, type) FROM stdin;
-1	0402012244  	Christer Petterson	student
-2	199012121234	John Doe	student
-3	198706155678	Jane Smith	instructor
-4	200205202345	Alice Johnson	student
-5	197812306789	Bob Brown	administrator
-6	199903113456	Emma Davis	student
-7	198402257890	Chris Wilson	instructor
-8	200111084567	Sophia Martinez	student
-9	196504228901	Liam White	administrator
-10	198310105674	Olivia Harris	instructor
-11	200309306785	Ethan King	student
-12	200411151122	Chloe Green	student
-13	197405184455	Isabella Adams	administrator
-14	198808255566	Mia Stewart	instructor
-15	200010016677	Charlotte Bell	student
-16	199702147788	Henry Young	student
-17	197903308899	Ella Brooks	administrator
-18	198611069900	James Carter	instructor
-19	200512120011	Lucas Mitchell	student
-20	200104031122	Amelia Taylor	student
-21	198909182233	Lily Foster	administrator
+COPY public.instrument_type (instrument_id, type) FROM stdin;
+1	Piano
+2	Guitar
+3	Violin
+4	Drums
+5	Flute
+6	Saxophone
+7	Trumpet
+8	Cello
+9	Clarinet
+10	Bass Guitar
 \.
 
 
 --
--- TOC entry 3747 (class 0 OID 16541)
--- Dependencies: 227
--- Data for Name: ensemble; Type: TABLE DATA; Schema: public; Owner: harry
+-- TOC entry 3806 (class 0 OID 16723)
+-- Dependencies: 236
+-- Data for Name: lesson_type; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
-COPY public.ensemble (lesson_id, level, person_id, genre, max_students, min_students) FROM stdin;
-58	1	2	Classical	10	5
-59	2	6	Jazz	12	6
-60	3	13	Rock	15	7
-61	1	9	Pop	20	8
-62	2	19	Blues	25	10
-63	3	14	Folk	18	9
+COPY public.lesson_type (id, lesson_type) FROM stdin;
+1	ensemble
+2	group
+3	individual
 \.
 
 
 --
--- TOC entry 3748 (class 0 OID 16553)
+-- TOC entry 3802 (class 0 OID 16658)
+-- Dependencies: 232
+-- Data for Name: skill_level; Type: TABLE DATA; Schema: public; Owner: harry
+--
+
+COPY public.skill_level (skill_type_id, skill_type) FROM stdin;
+1	Beginner
+2	Intermediate
+3	Advanced
+\.
+
+
+--
+-- TOC entry 3798 (class 0 OID 16646)
 -- Dependencies: 228
--- Data for Name: fees; Type: TABLE DATA; Schema: public; Owner: harry
+-- Data for Name: lesson; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
-COPY public.fees (type, start_date, fee) FROM stdin;
-individual	2024-01-01 00:00:00+01	100
-individual	2024-02-01 00:00:00+01	110
-individual	2024-03-01 00:00:00+01	105
-group	2024-01-15 00:00:00+01	90
-group	2024-03-15 00:00:00+01	95
-group	2024-05-15 00:00:00+02	85
-ensemble	2024-02-01 00:00:00+01	120
-ensemble	2024-04-01 00:00:00+02	115
-ensemble	2024-06-01 00:00:00+02	125
+COPY public.lesson (lesson_id, instrument_type, max_students, min_students, person_id, genre, lesson_type, skill_level) FROM stdin;
 \.
 
 
 --
--- TOC entry 3746 (class 0 OID 16531)
+-- TOC entry 3789 (class 0 OID 16417)
+-- Dependencies: 219
+-- Data for Name: enrollment; Type: TABLE DATA; Schema: public; Owner: harry
+--
+
+COPY public.enrollment (person_id, lesson_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3796 (class 0 OID 16553)
 -- Dependencies: 226
--- Data for Name: group_lessons; Type: TABLE DATA; Schema: public; Owner: harry
+-- Data for Name: fee; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
-COPY public.group_lessons (lesson_id, level, person_id, max_students, min_students, instrument) FROM stdin;
-14	1	2	20	5	Piano
-15	2	6	15	3	Violin
-16	3	13	10	4	Guitar
-17	1	9	25	10	Drums
-18	2	14	30	12	Flute
-19	3	19	12	5	Saxophone
+COPY public.fee (start_date, fee, lesson_type, skill_level) FROM stdin;
 \.
 
 
 --
--- TOC entry 3751 (class 0 OID 16607)
--- Dependencies: 231
--- Data for Name: individual_lessons; Type: TABLE DATA; Schema: public; Owner: harry
+-- TOC entry 3807 (class 0 OID 16738)
+-- Dependencies: 237
+-- Data for Name: instructor_instrument; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
-COPY public.individual_lessons (lesson_id, level, person_id, instrument) FROM stdin;
-1	1	2	Piano
-2	2	6	Violin
-3	3	13	Guitar
-4	1	9	Drums
-5	2	19	Flute
-6	3	14	Trumpet
-7	1	15	Cello
-8	2	16	Saxophone
+COPY public.instructor_instrument (person_id, instrument_id) FROM stdin;
 \.
 
 
 --
--- TOC entry 3742 (class 0 OID 16430)
+-- TOC entry 3792 (class 0 OID 16430)
 -- Dependencies: 222
 -- Data for Name: instruments; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
-COPY public.instruments (instrument_id, type, brand, fee, rented) FROM stdin;
-1	Piano	Yamaha	150	0
-2	Violin	Stradivarius	30	1
-3	Guitar	Fender	120	0
-4	Drums	Pearl	140	1
-5	Flute	Gemeinhardt	80	0
-6	Trumpet	Bach	100	0
-7	Cello	Stentor	180	1
-8	Saxophone	Selmer	130	1
-9	Harp	Lyon & Healy	300	0
-10	Clarinet	Buffet Crampon	90	1
-11	Trombone	Yamaha	110	0
-12	Ukulele	Kala	50	0
-13	Electric Guitar	Gibson	200	1
-14	Bass Guitar	Ibanez	160	0
-15	Synthesizer	Roland	250	1
-16	Accordion	Hohner	220	0
-17	Marimba	Adams	400	1
-18	Banjo	Deering	140	0
-19	Mandolin	Eastman	110	1
-20	Oboe	Marigaux	180	0
+COPY public.instruments (instrument_id, brand, fee, rented, instrument_type) FROM stdin;
 \.
 
 
 --
--- TOC entry 3743 (class 0 OID 16457)
+-- TOC entry 3793 (class 0 OID 16457)
 -- Dependencies: 223
 -- Data for Name: rentals; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
 COPY public.rentals (start_time, end_time, person_id, instrument_id) FROM stdin;
-2024-01-01 00:00:00+01	\N	3	2
-2024-02-15 00:00:00+01	\N	5	4
-2024-03-10 00:00:00+01	\N	7	8
-2024-03-25 00:00:00+01	\N	10	6
-2023-12-01 00:00:00+01	2024-01-01 00:00:00+01	15	12
-2024-01-15 00:00:00+01	2024-02-15 00:00:00+01	18	3
-2023-11-01 00:00:00+01	2023-12-01 00:00:00+01	19	7
-2024-01-05 00:00:00+01	2024-03-10 00:00:00+01	20	13
-2023-10-01 00:00:00+02	2023-12-01 00:00:00+01	11	1
-2024-01-20 00:00:00+01	2024-02-20 00:00:00+01	3	15
 \.
 
 
 --
--- TOC entry 3740 (class 0 OID 16422)
+-- TOC entry 3790 (class 0 OID 16422)
 -- Dependencies: 220
 -- Data for Name: schedule; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
-COPY public.schedule (starttime, endtime, type, lesson_id) FROM stdin;
-2024-01-01 10:00:00+01	2024-01-01 11:00:00+01	group	14
-2024-01-02 12:00:00+01	2024-01-02 13:00:00+01	group	15
-2024-01-03 15:00:00+01	2024-01-03 16:00:00+01	group	16
-2024-01-04 11:00:00+01	2024-01-04 12:30:00+01	group	17
-2024-01-05 14:00:00+01	2024-01-05 15:30:00+01	group	18
-2024-01-06 16:00:00+01	2024-01-06 17:30:00+01	group	19
-2024-01-07 10:00:00+01	2024-01-07 11:00:00+01	individual	1
-2024-01-08 12:00:00+01	2024-01-08 13:00:00+01	individual	2
-2024-01-09 14:00:00+01	2024-01-09 15:00:00+01	individual	3
-2024-01-10 16:00:00+01	2024-01-10 17:00:00+01	individual	4
-2024-01-11 11:00:00+01	2024-01-11 12:00:00+01	individual	5
-2024-01-12 15:00:00+01	2024-01-12 16:00:00+01	individual	6
-2024-01-13 17:00:00+01	2024-01-13 18:00:00+01	individual	7
-2024-01-14 18:30:00+01	2024-01-14 19:30:00+01	individual	8
-2024-01-15 10:00:00+01	2024-01-15 11:30:00+01	ensemble	58
-2024-01-16 12:00:00+01	2024-01-16 13:30:00+01	ensemble	59
-2024-01-17 15:00:00+01	2024-01-17 16:30:00+01	ensemble	60
-2024-01-18 17:00:00+01	2024-01-18 18:30:00+01	ensemble	61
-2024-01-19 11:00:00+01	2024-01-19 12:30:00+01	ensemble	62
-2024-01-20 19:00:00+01	2024-01-20 20:30:00+01	ensemble	63
+COPY public.schedule (starttime, endtime, lesson_id) FROM stdin;
+2024-01-01 10:00:00+01	2024-01-01 11:00:00+01	14
+2024-01-02 12:00:00+01	2024-01-02 13:00:00+01	15
+2024-01-03 15:00:00+01	2024-01-03 16:00:00+01	16
+2024-01-04 11:00:00+01	2024-01-04 12:30:00+01	17
+2024-01-05 14:00:00+01	2024-01-05 15:30:00+01	18
+2024-01-06 16:00:00+01	2024-01-06 17:30:00+01	19
+2024-01-07 10:00:00+01	2024-01-07 11:00:00+01	1
+2024-01-08 12:00:00+01	2024-01-08 13:00:00+01	2
+2024-01-09 14:00:00+01	2024-01-09 15:00:00+01	3
+2024-01-10 16:00:00+01	2024-01-10 17:00:00+01	4
+2024-01-11 11:00:00+01	2024-01-11 12:00:00+01	5
+2024-01-12 15:00:00+01	2024-01-12 16:00:00+01	6
+2024-01-13 17:00:00+01	2024-01-13 18:00:00+01	7
+2024-01-14 18:30:00+01	2024-01-14 19:30:00+01	8
+2024-01-15 10:00:00+01	2024-01-15 11:30:00+01	58
+2024-01-16 12:00:00+01	2024-01-16 13:30:00+01	59
+2024-01-17 15:00:00+01	2024-01-17 16:30:00+01	60
+2024-01-18 17:00:00+01	2024-01-18 18:30:00+01	61
+2024-01-19 11:00:00+01	2024-01-19 12:30:00+01	62
+2024-01-20 19:00:00+01	2024-01-20 20:30:00+01	63
 \.
 
 
 --
--- TOC entry 3745 (class 0 OID 16469)
+-- TOC entry 3795 (class 0 OID 16469)
 -- Dependencies: 225
--- Data for Name: siblings; Type: TABLE DATA; Schema: public; Owner: harry
+-- Data for Name: sibling; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
-COPY public.siblings (person_id, sibling) FROM stdin;
-3	7
-7	3
-10	11
-11	10
-15	20
-20	15
-5	8
-8	5
+COPY public.sibling (person_id, sibling) FROM stdin;
 \.
 
 
 --
--- TOC entry 3758 (class 0 OID 0)
--- Dependencies: 230
--- Name: ensemble_lesson_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
+-- TOC entry 3817 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: contact_type_contact_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
 
-SELECT pg_catalog.setval('public.ensemble_lesson_id_seq', 63, true);
+SELECT pg_catalog.setval('public.contact_type_contact_type_id_seq', 7, true);
 
 
 --
--- TOC entry 3759 (class 0 OID 0)
+-- TOC entry 3818 (class 0 OID 0)
+-- Dependencies: 233
+-- Name: genre_genre_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
+--
+
+SELECT pg_catalog.setval('public.genre_genre_id_seq', 10, true);
+
+
+--
+-- TOC entry 3819 (class 0 OID 0)
 -- Dependencies: 229
--- Name: group_lessons_lesson_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
+-- Name: instrument_type_instrument_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
 
-SELECT pg_catalog.setval('public.group_lessons_lesson_id_seq', 19, true);
-
-
---
--- TOC entry 3760 (class 0 OID 0)
--- Dependencies: 232
--- Name: individual_lessons_lesson_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
---
-
-SELECT pg_catalog.setval('public.individual_lessons_lesson_id_seq', 8, true);
+SELECT pg_catalog.setval('public.instrument_type_instrument_id_seq', 10, true);
 
 
 --
--- TOC entry 3761 (class 0 OID 0)
+-- TOC entry 3820 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: instruments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -334,15 +445,51 @@ SELECT pg_catalog.setval('public.instruments_id_seq', 20, true);
 
 
 --
--- TOC entry 3762 (class 0 OID 0)
+-- TOC entry 3821 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: lesson_lesson_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
+--
+
+SELECT pg_catalog.setval('public.lesson_lesson_id_seq', 1, false);
+
+
+--
+-- TOC entry 3822 (class 0 OID 0)
+-- Dependencies: 235
+-- Name: lesson_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
+--
+
+SELECT pg_catalog.setval('public.lesson_type_id_seq', 3, true);
+
+
+--
+-- TOC entry 3823 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
 
-SELECT pg_catalog.setval('public.person_id_seq', 21, true);
+SELECT pg_catalog.setval('public.person_id_seq', 46, true);
 
 
--- Completed on 2024-11-21 20:26:50 CET
+--
+-- TOC entry 3824 (class 0 OID 0)
+-- Dependencies: 240
+-- Name: person_type_person_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
+--
+
+SELECT pg_catalog.setval('public.person_type_person_type_id_seq', 3, true);
+
+
+--
+-- TOC entry 3825 (class 0 OID 0)
+-- Dependencies: 231
+-- Name: skill_level_skill_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
+--
+
+SELECT pg_catalog.setval('public.skill_level_skill_type_id_seq', 3, true);
+
+
+-- Completed on 2024-11-29 20:46:38 CET
 
 --
 -- PostgreSQL database dump complete
