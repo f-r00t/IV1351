@@ -1,0 +1,96 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Dark Mode Colors */
+:root {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --accent-color: #bb86fc;
+    --button-bg: #333333;
+    --button-hover: #444444;
+}
+
+/* Body Styling */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+/* Section Styling */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+section {
+    background-color: var(--button-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+/* Form and Button Styling */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--button-hover);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+button {
+    cursor: pointer;
+    background-color: var(--accent-color);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+#instruments-container {
+    margin-top: 10px;
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+}
