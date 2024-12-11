@@ -5,7 +5,7 @@
 -- Dumped from database version 17.1 (Postgres.app)
 -- Dumped by pg_dump version 17.0
 
--- Started on 2024-12-02 22:25:58 CET
+-- Started on 2024-12-11 20:50:31 CET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -476,6 +476,26 @@ INSERT INTO public.historical_lessons (lesson_id, start_time, lesson_type, genre
 -- Data for Name: instruments; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (22, 'Steinway & Sons', 300, B'0', 1);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (27, 'Pearl', 150, B'0', 4);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (28, 'Tama', 200, B'0', 4);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (29, 'Yamaha', 40, B'0', 5);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (30, 'Gemeinhardt', 60, B'0', 5);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (31, 'Selmer', 250, B'0', 6);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (32, 'Yamaha', 220, B'0', 6);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (33, 'Bach', 70, B'0', 7);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (34, 'Yamaha', 90, B'0', 7);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (35, 'Stradivarius', 450, B'0', 8);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (36, 'Yamaha', 110, B'0', 8);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (37, 'Buffet Crampon', 100, B'0', 9);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (38, 'Yamaha', 80, B'0', 9);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (39, 'Ibanez', 75, B'0', 10);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (40, 'Fender', 90, B'0', 10);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (21, 'Yamaha', 120.5, B'0', 1);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (23, 'Fender', 50, B'0', 2);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (24, 'Gibson', 80, B'0', 2);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (25, 'Stradivarius', 500, B'0', 3);
+INSERT INTO public.instruments (instrument_id, brand, fee, rented, instrument_type) OVERRIDING SYSTEM VALUE VALUES (26, 'Yamaha', 100, B'1', 3);
 
 
 --
@@ -484,6 +504,14 @@ INSERT INTO public.historical_lessons (lesson_id, start_time, lesson_type, genre
 -- Data for Name: rentals; Type: TABLE DATA; Schema: public; Owner: harry
 --
 
+INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id, rental_id) OVERRIDING SYSTEM VALUE VALUES ('2024-12-11 19:58:35+01', '2024-12-11 20:01:00+01', 23, 25, 1);
+INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id, rental_id) OVERRIDING SYSTEM VALUE VALUES ('2024-12-11 20:01:25+01', '2024-12-11 20:02:08+01', 23, 25, 2);
+INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id, rental_id) OVERRIDING SYSTEM VALUE VALUES ('2024-12-11 20:02:19+01', '2024-12-11 20:02:51+01', 23, 25, 3);
+INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id, rental_id) OVERRIDING SYSTEM VALUE VALUES ('2024-12-11 20:08:50+01', '2024-12-11 20:08:59+01', 24, 26, 5);
+INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id, rental_id) OVERRIDING SYSTEM VALUE VALUES ('2024-12-11 20:02:55+01', '2024-12-11 20:09:14+01', 23, 25, 4);
+INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id, rental_id) OVERRIDING SYSTEM VALUE VALUES ('2024-12-11 20:10:59+01', '2024-12-11 20:17:11+01', 24, 26, 6);
+INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id, rental_id) OVERRIDING SYSTEM VALUE VALUES ('2024-12-11 20:19:07+01', '2024-12-11 20:19:47+01', 24, 26, 7);
+INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id, rental_id) OVERRIDING SYSTEM VALUE VALUES ('2024-12-11 20:21:20+01', NULL, 25, 26, 8);
 
 
 --
@@ -550,7 +578,7 @@ INSERT INTO public.sibling (person_id, sibling) VALUES (56, 55);
 
 
 --
--- TOC entry 3824 (class 0 OID 0)
+-- TOC entry 3825 (class 0 OID 0)
 -- Dependencies: 238
 -- Name: contact_type_contact_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -559,7 +587,7 @@ SELECT pg_catalog.setval('public.contact_type_contact_type_id_seq', 7, true);
 
 
 --
--- TOC entry 3825 (class 0 OID 0)
+-- TOC entry 3826 (class 0 OID 0)
 -- Dependencies: 233
 -- Name: genre_genre_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -568,7 +596,7 @@ SELECT pg_catalog.setval('public.genre_genre_id_seq', 10, true);
 
 
 --
--- TOC entry 3826 (class 0 OID 0)
+-- TOC entry 3827 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: instrument_type_instrument_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -577,16 +605,16 @@ SELECT pg_catalog.setval('public.instrument_type_instrument_id_seq', 10, true);
 
 
 --
--- TOC entry 3827 (class 0 OID 0)
+-- TOC entry 3828 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: instruments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
 
-SELECT pg_catalog.setval('public.instruments_id_seq', 20, true);
+SELECT pg_catalog.setval('public.instruments_id_seq', 40, true);
 
 
 --
--- TOC entry 3828 (class 0 OID 0)
+-- TOC entry 3829 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: lesson_lesson_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -595,7 +623,7 @@ SELECT pg_catalog.setval('public.lesson_lesson_id_seq', 1, false);
 
 
 --
--- TOC entry 3829 (class 0 OID 0)
+-- TOC entry 3830 (class 0 OID 0)
 -- Dependencies: 235
 -- Name: lesson_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -604,7 +632,7 @@ SELECT pg_catalog.setval('public.lesson_type_id_seq', 3, true);
 
 
 --
--- TOC entry 3830 (class 0 OID 0)
+-- TOC entry 3831 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -613,7 +641,7 @@ SELECT pg_catalog.setval('public.person_id_seq', 83, true);
 
 
 --
--- TOC entry 3831 (class 0 OID 0)
+-- TOC entry 3832 (class 0 OID 0)
 -- Dependencies: 240
 -- Name: person_type_person_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -622,7 +650,16 @@ SELECT pg_catalog.setval('public.person_type_person_type_id_seq', 3, true);
 
 
 --
--- TOC entry 3832 (class 0 OID 0)
+-- TOC entry 3833 (class 0 OID 0)
+-- Dependencies: 243
+-- Name: rentals_rental_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
+--
+
+SELECT pg_catalog.setval('public.rentals_rental_id_seq', 8, true);
+
+
+--
+-- TOC entry 3834 (class 0 OID 0)
 -- Dependencies: 231
 -- Name: skill_level_skill_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -630,7 +667,7 @@ SELECT pg_catalog.setval('public.person_type_person_type_id_seq', 3, true);
 SELECT pg_catalog.setval('public.skill_level_skill_type_id_seq', 3, true);
 
 
--- Completed on 2024-12-02 22:25:58 CET
+-- Completed on 2024-12-11 20:50:32 CET
 
 --
 -- PostgreSQL database dump complete

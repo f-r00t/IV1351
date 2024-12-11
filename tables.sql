@@ -5,7 +5,7 @@
 -- Dumped from database version 17.1 (Postgres.app)
 -- Dumped by pg_dump version 17.0
 
--- Started on 2024-12-02 22:24:45 CET
+-- Started on 2024-12-11 20:51:13 CET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -21,15 +21,30 @@ SET row_security = off;
 
 --
 -- TOC entry 4 (class 2615 OID 2200)
--- Name: public; Type: SCHEMA; Schema: -; Owner: -
+-- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
 --
 
 CREATE SCHEMA public;
 
 
+ALTER SCHEMA public OWNER TO pg_database_owner;
+
+--
+-- TOC entry 3798 (class 0 OID 0)
+-- Dependencies: 4
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
 --
 -- TOC entry 224 (class 1259 OID 16462)
--- Name: contact_details; Type: TABLE; Schema: public; Owner: -
+-- Name: contact_details; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.contact_details (
@@ -39,9 +54,11 @@ CREATE TABLE public.contact_details (
 );
 
 
+ALTER TABLE public.contact_details OWNER TO harry;
+
 --
 -- TOC entry 239 (class 1259 OID 16754)
--- Name: contact_type; Type: TABLE; Schema: public; Owner: -
+-- Name: contact_type; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.contact_type (
@@ -50,9 +67,11 @@ CREATE TABLE public.contact_type (
 );
 
 
+ALTER TABLE public.contact_type OWNER TO harry;
+
 --
 -- TOC entry 238 (class 1259 OID 16753)
--- Name: contact_type_contact_type_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: contact_type_contact_type_id_seq; Type: SEQUENCE; Schema: public; Owner: harry
 --
 
 ALTER TABLE public.contact_type ALTER COLUMN contact_type_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -67,7 +86,7 @@ ALTER TABLE public.contact_type ALTER COLUMN contact_type_id ADD GENERATED ALWAY
 
 --
 -- TOC entry 219 (class 1259 OID 16417)
--- Name: enrollment; Type: TABLE; Schema: public; Owner: -
+-- Name: enrollment; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.enrollment (
@@ -76,9 +95,11 @@ CREATE TABLE public.enrollment (
 );
 
 
+ALTER TABLE public.enrollment OWNER TO harry;
+
 --
 -- TOC entry 226 (class 1259 OID 16553)
--- Name: fee; Type: TABLE; Schema: public; Owner: -
+-- Name: fee; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.fee (
@@ -89,9 +110,11 @@ CREATE TABLE public.fee (
 );
 
 
+ALTER TABLE public.fee OWNER TO harry;
+
 --
 -- TOC entry 234 (class 1259 OID 16712)
--- Name: genre; Type: TABLE; Schema: public; Owner: -
+-- Name: genre; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.genre (
@@ -100,9 +123,11 @@ CREATE TABLE public.genre (
 );
 
 
+ALTER TABLE public.genre OWNER TO harry;
+
 --
 -- TOC entry 233 (class 1259 OID 16711)
--- Name: genre_genre_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: genre_genre_id_seq; Type: SEQUENCE; Schema: public; Owner: harry
 --
 
 ALTER TABLE public.genre ALTER COLUMN genre_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -117,7 +142,7 @@ ALTER TABLE public.genre ALTER COLUMN genre_id ADD GENERATED ALWAYS AS IDENTITY 
 
 --
 -- TOC entry 242 (class 1259 OID 16979)
--- Name: historical_lessons; Type: TABLE; Schema: public; Owner: -
+-- Name: historical_lessons; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.historical_lessons (
@@ -132,9 +157,11 @@ CREATE TABLE public.historical_lessons (
 );
 
 
+ALTER TABLE public.historical_lessons OWNER TO harry;
+
 --
 -- TOC entry 237 (class 1259 OID 16738)
--- Name: instructor_instrument; Type: TABLE; Schema: public; Owner: -
+-- Name: instructor_instrument; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.instructor_instrument (
@@ -143,9 +170,11 @@ CREATE TABLE public.instructor_instrument (
 );
 
 
+ALTER TABLE public.instructor_instrument OWNER TO harry;
+
 --
 -- TOC entry 230 (class 1259 OID 16652)
--- Name: instrument_type; Type: TABLE; Schema: public; Owner: -
+-- Name: instrument_type; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.instrument_type (
@@ -154,9 +183,11 @@ CREATE TABLE public.instrument_type (
 );
 
 
+ALTER TABLE public.instrument_type OWNER TO harry;
+
 --
 -- TOC entry 229 (class 1259 OID 16651)
--- Name: instrument_type_instrument_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: instrument_type_instrument_id_seq; Type: SEQUENCE; Schema: public; Owner: harry
 --
 
 ALTER TABLE public.instrument_type ALTER COLUMN instrument_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -171,7 +202,7 @@ ALTER TABLE public.instrument_type ALTER COLUMN instrument_id ADD GENERATED ALWA
 
 --
 -- TOC entry 222 (class 1259 OID 16430)
--- Name: instruments; Type: TABLE; Schema: public; Owner: -
+-- Name: instruments; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.instruments (
@@ -183,9 +214,11 @@ CREATE TABLE public.instruments (
 );
 
 
+ALTER TABLE public.instruments OWNER TO harry;
+
 --
 -- TOC entry 221 (class 1259 OID 16429)
--- Name: instruments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: instruments_id_seq; Type: SEQUENCE; Schema: public; Owner: harry
 --
 
 ALTER TABLE public.instruments ALTER COLUMN instrument_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -200,7 +233,7 @@ ALTER TABLE public.instruments ALTER COLUMN instrument_id ADD GENERATED ALWAYS A
 
 --
 -- TOC entry 228 (class 1259 OID 16646)
--- Name: lesson; Type: TABLE; Schema: public; Owner: -
+-- Name: lesson; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.lesson (
@@ -215,9 +248,11 @@ CREATE TABLE public.lesson (
 );
 
 
+ALTER TABLE public.lesson OWNER TO harry;
+
 --
 -- TOC entry 227 (class 1259 OID 16645)
--- Name: lesson_lesson_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: lesson_lesson_id_seq; Type: SEQUENCE; Schema: public; Owner: harry
 --
 
 ALTER TABLE public.lesson ALTER COLUMN lesson_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -232,7 +267,7 @@ ALTER TABLE public.lesson ALTER COLUMN lesson_id ADD GENERATED ALWAYS AS IDENTIT
 
 --
 -- TOC entry 236 (class 1259 OID 16723)
--- Name: lesson_type; Type: TABLE; Schema: public; Owner: -
+-- Name: lesson_type; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.lesson_type (
@@ -241,9 +276,11 @@ CREATE TABLE public.lesson_type (
 );
 
 
+ALTER TABLE public.lesson_type OWNER TO harry;
+
 --
 -- TOC entry 235 (class 1259 OID 16722)
--- Name: lesson_type_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: lesson_type_id_seq; Type: SEQUENCE; Schema: public; Owner: harry
 --
 
 ALTER TABLE public.lesson_type ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -258,7 +295,7 @@ ALTER TABLE public.lesson_type ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY 
 
 --
 -- TOC entry 218 (class 1259 OID 16391)
--- Name: person; Type: TABLE; Schema: public; Owner: -
+-- Name: person; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.person (
@@ -270,9 +307,11 @@ CREATE TABLE public.person (
 );
 
 
+ALTER TABLE public.person OWNER TO harry;
+
 --
 -- TOC entry 217 (class 1259 OID 16390)
--- Name: person_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: person_id_seq; Type: SEQUENCE; Schema: public; Owner: harry
 --
 
 ALTER TABLE public.person ALTER COLUMN person_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -287,7 +326,7 @@ ALTER TABLE public.person ALTER COLUMN person_id ADD GENERATED ALWAYS AS IDENTIT
 
 --
 -- TOC entry 241 (class 1259 OID 16796)
--- Name: person_type; Type: TABLE; Schema: public; Owner: -
+-- Name: person_type; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.person_type (
@@ -296,9 +335,11 @@ CREATE TABLE public.person_type (
 );
 
 
+ALTER TABLE public.person_type OWNER TO harry;
+
 --
 -- TOC entry 240 (class 1259 OID 16795)
--- Name: person_type_person_type_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: person_type_person_type_id_seq; Type: SEQUENCE; Schema: public; Owner: harry
 --
 
 ALTER TABLE public.person_type ALTER COLUMN person_type_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -313,20 +354,38 @@ ALTER TABLE public.person_type ALTER COLUMN person_type_id ADD GENERATED ALWAYS 
 
 --
 -- TOC entry 223 (class 1259 OID 16457)
--- Name: rentals; Type: TABLE; Schema: public; Owner: -
+-- Name: rentals; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.rentals (
     start_time timestamp(6) with time zone NOT NULL,
     end_time timestamp(6) with time zone,
     person_id integer NOT NULL,
-    instrument_id integer NOT NULL
+    instrument_id integer NOT NULL,
+    rental_id integer NOT NULL
+);
+
+
+ALTER TABLE public.rentals OWNER TO harry;
+
+--
+-- TOC entry 243 (class 1259 OID 16984)
+-- Name: rentals_rental_id_seq; Type: SEQUENCE; Schema: public; Owner: harry
+--
+
+ALTER TABLE public.rentals ALTER COLUMN rental_id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.rentals_rental_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
 );
 
 
 --
 -- TOC entry 220 (class 1259 OID 16422)
--- Name: schedule; Type: TABLE; Schema: public; Owner: -
+-- Name: schedule; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.schedule (
@@ -336,9 +395,11 @@ CREATE TABLE public.schedule (
 );
 
 
+ALTER TABLE public.schedule OWNER TO harry;
+
 --
 -- TOC entry 225 (class 1259 OID 16469)
--- Name: sibling; Type: TABLE; Schema: public; Owner: -
+-- Name: sibling; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.sibling (
@@ -347,9 +408,11 @@ CREATE TABLE public.sibling (
 );
 
 
+ALTER TABLE public.sibling OWNER TO harry;
+
 --
 -- TOC entry 232 (class 1259 OID 16658)
--- Name: skill_level; Type: TABLE; Schema: public; Owner: -
+-- Name: skill_level; Type: TABLE; Schema: public; Owner: harry
 --
 
 CREATE TABLE public.skill_level (
@@ -358,9 +421,11 @@ CREATE TABLE public.skill_level (
 );
 
 
+ALTER TABLE public.skill_level OWNER TO harry;
+
 --
 -- TOC entry 231 (class 1259 OID 16657)
--- Name: skill_level_skill_type_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: skill_level_skill_type_id_seq; Type: SEQUENCE; Schema: public; Owner: harry
 --
 
 ALTER TABLE public.skill_level ALTER COLUMN skill_type_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -374,8 +439,8 @@ ALTER TABLE public.skill_level ALTER COLUMN skill_type_id ADD GENERATED ALWAYS A
 
 
 --
--- TOC entry 3603 (class 2606 OID 16760)
--- Name: contact_details contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3604 (class 2606 OID 16760)
+-- Name: contact_details contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.contact_details
@@ -383,8 +448,8 @@ ALTER TABLE ONLY public.contact_details
 
 
 --
--- TOC entry 3623 (class 2606 OID 16758)
--- Name: contact_type contact_type_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3624 (class 2606 OID 16758)
+-- Name: contact_type contact_type_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.contact_type
@@ -392,8 +457,8 @@ ALTER TABLE ONLY public.contact_type
 
 
 --
--- TOC entry 3595 (class 2606 OID 16680)
--- Name: enrollment enrollment_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3596 (class 2606 OID 16680)
+-- Name: enrollment enrollment_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.enrollment
@@ -401,8 +466,8 @@ ALTER TABLE ONLY public.enrollment
 
 
 --
--- TOC entry 3607 (class 2606 OID 16784)
--- Name: fee fee_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3608 (class 2606 OID 16784)
+-- Name: fee fee_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.fee
@@ -410,8 +475,8 @@ ALTER TABLE ONLY public.fee
 
 
 --
--- TOC entry 3617 (class 2606 OID 16716)
--- Name: genre genre_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3618 (class 2606 OID 16716)
+-- Name: genre genre_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.genre
@@ -419,8 +484,8 @@ ALTER TABLE ONLY public.genre
 
 
 --
--- TOC entry 3627 (class 2606 OID 16983)
--- Name: historical_lessons historical_lessons_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3628 (class 2606 OID 16983)
+-- Name: historical_lessons historical_lessons_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.historical_lessons
@@ -428,8 +493,8 @@ ALTER TABLE ONLY public.historical_lessons
 
 
 --
--- TOC entry 3621 (class 2606 OID 16742)
--- Name: instructor_instrument instructor_instrument_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3622 (class 2606 OID 16742)
+-- Name: instructor_instrument instructor_instrument_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.instructor_instrument
@@ -437,8 +502,8 @@ ALTER TABLE ONLY public.instructor_instrument
 
 
 --
--- TOC entry 3613 (class 2606 OID 16656)
--- Name: instrument_type instrument_type_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3614 (class 2606 OID 16656)
+-- Name: instrument_type instrument_type_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.instrument_type
@@ -446,8 +511,8 @@ ALTER TABLE ONLY public.instrument_type
 
 
 --
--- TOC entry 3599 (class 2606 OID 16436)
--- Name: instruments instruments_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3600 (class 2606 OID 16436)
+-- Name: instruments instruments_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.instruments
@@ -455,8 +520,8 @@ ALTER TABLE ONLY public.instruments
 
 
 --
--- TOC entry 3609 (class 2606 OID 16676)
--- Name: lesson lesson_id; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3610 (class 2606 OID 16676)
+-- Name: lesson lesson_id; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.lesson
@@ -464,8 +529,8 @@ ALTER TABLE ONLY public.lesson
 
 
 --
--- TOC entry 3611 (class 2606 OID 16650)
--- Name: lesson lesson_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3612 (class 2606 OID 16650)
+-- Name: lesson lesson_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.lesson
@@ -473,8 +538,8 @@ ALTER TABLE ONLY public.lesson
 
 
 --
--- TOC entry 3619 (class 2606 OID 16727)
--- Name: lesson_type lesson_type_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3620 (class 2606 OID 16727)
+-- Name: lesson_type lesson_type_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.lesson_type
@@ -482,8 +547,8 @@ ALTER TABLE ONLY public.lesson_type
 
 
 --
--- TOC entry 3591 (class 2606 OID 16395)
--- Name: person person_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3592 (class 2606 OID 16395)
+-- Name: person person_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.person
@@ -491,8 +556,8 @@ ALTER TABLE ONLY public.person
 
 
 --
--- TOC entry 3625 (class 2606 OID 16800)
--- Name: person_type person_type_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3626 (class 2606 OID 16800)
+-- Name: person_type person_type_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.person_type
@@ -500,8 +565,8 @@ ALTER TABLE ONLY public.person_type
 
 
 --
--- TOC entry 3593 (class 2606 OID 16569)
--- Name: person personalnumber; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3594 (class 2606 OID 16569)
+-- Name: person personalnumber; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.person
@@ -509,17 +574,17 @@ ALTER TABLE ONLY public.person
 
 
 --
--- TOC entry 3601 (class 2606 OID 16498)
--- Name: rentals rentals_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3602 (class 2606 OID 16989)
+-- Name: rentals rentals_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.rentals
-    ADD CONSTRAINT rentals_pkey PRIMARY KEY (person_id, instrument_id);
+    ADD CONSTRAINT rentals_pkey PRIMARY KEY (rental_id);
 
 
 --
--- TOC entry 3597 (class 2606 OID 16669)
--- Name: schedule schedule_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3598 (class 2606 OID 16669)
+-- Name: schedule schedule_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.schedule
@@ -527,8 +592,8 @@ ALTER TABLE ONLY public.schedule
 
 
 --
--- TOC entry 3605 (class 2606 OID 16473)
--- Name: sibling siblings_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3606 (class 2606 OID 16473)
+-- Name: sibling siblings_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.sibling
@@ -536,8 +601,8 @@ ALTER TABLE ONLY public.sibling
 
 
 --
--- TOC entry 3615 (class 2606 OID 16662)
--- Name: skill_level skill_level_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3616 (class 2606 OID 16662)
+-- Name: skill_level skill_level_pkey; Type: CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.skill_level
@@ -546,7 +611,7 @@ ALTER TABLE ONLY public.skill_level
 
 --
 -- TOC entry 3635 (class 2606 OID 16761)
--- Name: contact_details contact_type_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: contact_details contact_type_id; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.contact_details
@@ -555,7 +620,7 @@ ALTER TABLE ONLY public.contact_details
 
 --
 -- TOC entry 3639 (class 2606 OID 16785)
--- Name: fee fee_lesson_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fee fee_lesson_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.fee
@@ -564,7 +629,7 @@ ALTER TABLE ONLY public.fee
 
 --
 -- TOC entry 3640 (class 2606 OID 16790)
--- Name: fee fee_skill_level_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fee fee_skill_level_fkey; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.fee
@@ -573,7 +638,7 @@ ALTER TABLE ONLY public.fee
 
 --
 -- TOC entry 3641 (class 2606 OID 16717)
--- Name: lesson genre; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: lesson genre; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.lesson
@@ -581,8 +646,8 @@ ALTER TABLE ONLY public.lesson
 
 
 --
--- TOC entry 3629 (class 2606 OID 16681)
--- Name: enrollment ids; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3630 (class 2606 OID 16681)
+-- Name: enrollment ids; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.enrollment
@@ -591,7 +656,7 @@ ALTER TABLE ONLY public.enrollment
 
 --
 -- TOC entry 3646 (class 2606 OID 16743)
--- Name: instructor_instrument ids; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: instructor_instrument ids; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.instructor_instrument
@@ -599,17 +664,8 @@ ALTER TABLE ONLY public.instructor_instrument
 
 
 --
--- TOC entry 3633 (class 2606 OID 16504)
--- Name: rentals instrument_id; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.rentals
-    ADD CONSTRAINT instrument_id FOREIGN KEY (instrument_id) REFERENCES public.instruments(instrument_id) NOT VALID;
-
-
---
 -- TOC entry 3647 (class 2606 OID 16748)
--- Name: instructor_instrument instrument_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: instructor_instrument instrument_id; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.instructor_instrument
@@ -617,8 +673,8 @@ ALTER TABLE ONLY public.instructor_instrument
 
 
 --
--- TOC entry 3632 (class 2606 OID 16663)
--- Name: instruments instrument_type; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3633 (class 2606 OID 16663)
+-- Name: instruments instrument_type; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.instruments
@@ -627,7 +683,7 @@ ALTER TABLE ONLY public.instruments
 
 --
 -- TOC entry 3642 (class 2606 OID 16696)
--- Name: lesson instrument_type; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: lesson instrument_type; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.lesson
@@ -635,8 +691,8 @@ ALTER TABLE ONLY public.lesson
 
 
 --
--- TOC entry 3631 (class 2606 OID 16670)
--- Name: schedule lesson_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3632 (class 2606 OID 16670)
+-- Name: schedule lesson_id; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.schedule
@@ -644,8 +700,8 @@ ALTER TABLE ONLY public.schedule
 
 
 --
--- TOC entry 3630 (class 2606 OID 16686)
--- Name: enrollment lesson_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3631 (class 2606 OID 16686)
+-- Name: enrollment lesson_id; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.enrollment
@@ -654,7 +710,7 @@ ALTER TABLE ONLY public.enrollment
 
 --
 -- TOC entry 3643 (class 2606 OID 16728)
--- Name: lesson lesson_type; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: lesson lesson_type; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.lesson
@@ -663,7 +719,7 @@ ALTER TABLE ONLY public.lesson
 
 --
 -- TOC entry 3634 (class 2606 OID 16499)
--- Name: rentals person_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: rentals person_id; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.rentals
@@ -672,7 +728,7 @@ ALTER TABLE ONLY public.rentals
 
 --
 -- TOC entry 3637 (class 2606 OID 16563)
--- Name: sibling person_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: sibling person_id; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.sibling
@@ -681,7 +737,7 @@ ALTER TABLE ONLY public.sibling
 
 --
 -- TOC entry 3636 (class 2606 OID 16640)
--- Name: contact_details person_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: contact_details person_id; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.contact_details
@@ -690,7 +746,7 @@ ALTER TABLE ONLY public.contact_details
 
 --
 -- TOC entry 3644 (class 2606 OID 16691)
--- Name: lesson person_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: lesson person_id; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.lesson
@@ -698,8 +754,8 @@ ALTER TABLE ONLY public.lesson
 
 
 --
--- TOC entry 3628 (class 2606 OID 16801)
--- Name: person person_person_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 3629 (class 2606 OID 16801)
+-- Name: person person_person_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.person
@@ -708,7 +764,7 @@ ALTER TABLE ONLY public.person
 
 --
 -- TOC entry 3638 (class 2606 OID 16701)
--- Name: sibling sibling_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: sibling sibling_id; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.sibling
@@ -717,14 +773,14 @@ ALTER TABLE ONLY public.sibling
 
 --
 -- TOC entry 3645 (class 2606 OID 16706)
--- Name: lesson skill; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: lesson skill; Type: FK CONSTRAINT; Schema: public; Owner: harry
 --
 
 ALTER TABLE ONLY public.lesson
     ADD CONSTRAINT skill FOREIGN KEY (skill_level) REFERENCES public.skill_level(skill_type_id) NOT VALID;
 
 
--- Completed on 2024-12-02 22:24:45 CET
+-- Completed on 2024-12-11 20:51:13 CET
 
 --
 -- PostgreSQL database dump complete
