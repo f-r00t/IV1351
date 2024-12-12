@@ -1,4 +1,4 @@
-import sql from './db.js'
+import sql from './rental_api/db/db.js'
 
 function getCurrentTimeFormatted() {
     const now = new Date();

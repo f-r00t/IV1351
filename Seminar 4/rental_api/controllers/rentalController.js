@@ -2,6 +2,8 @@ import {
     getAvailableInstruments,
     rentInstrument,
     terminateRental,
+    getAllRentals,
+    listStudents
 } from '../services/rentalService.js';
 
 import { model } from '../model.js';
@@ -11,7 +13,25 @@ export async function listInstruments(req, res) {
         console.log('Listing shit');
         const { type } = req.query; // Query parameter: ?type=guitar
         console.log('Listing shit', type);
-        const instruments = await getAvailableInstruments(type);
+        const instruments = await getAvailableInstruments();
+        res.status(200).json(instruments);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
+
+export async function listStudentsHandler(req, res) {
+    try {
+        const students = await listStudents();
+        res.status(200).json(students);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
+
+export async function getAllRentalsHandler(req, res) {
+    try {
+        const instruments = await getAllRentals();
         res.status(200).json(instruments);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -20,6 +40,7 @@ export async function listInstruments(req, res) {
 
 export async function rentInstrumentHandler(req, res) {
     const { studentId, instrumentId } = req.body;
+    console.log(studentId, instrumentId)
     try {
         if (model.lockedInstruments.some(i => i === instrumentId)) {
             return false;
@@ -41,6 +62,7 @@ export async function rentInstrumentHandler(req, res) {
 export async function terminateRentalHandler(req, res) {
     try {
         const { studentId, instrumentId } = req.body;
+        console.log(studentId, instrumentId);
         await terminateRental(studentId, instrumentId);
         res.status(200).json({ message: 'Rental terminated successfully.' });
     } catch (err) {

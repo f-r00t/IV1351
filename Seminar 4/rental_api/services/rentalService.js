@@ -61,11 +61,21 @@ export async function getAvailableInstruments(instrumentType) {
 
     const instruments = await sql`
         SELECT * FROM public.instruments
-        WHERE instrument_type = ${instrument_type} AND rented = b'0'
+        WHERE rented = b'0' 
         ORDER BY instrument_id ASC 
     `
     console.log(instruments);
     return instruments;
+}
+
+// Get available instruments
+export async function listStudents() {
+
+  const students = await sql`
+      SELECT * FROM public.person
+      WHERE person_type = 2
+  `
+  return students;
 }
 
 // Rent an instrument
@@ -115,4 +125,13 @@ export async function terminateRental(student_id, instrument_id) {
     
         // console.log(removed);
     
+}
+
+export async function getAllRentals() {
+
+  const result = await sql`
+      SELECT * FROM public.rentals WHERE end_time is NULL
+  `
+  return result;
+
 }
