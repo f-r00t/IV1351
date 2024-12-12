@@ -18,11 +18,6 @@ async function getRentalListings(instrument_type) {
 
 async function rentInstrument(student_id, instrument_id) {
 
-    if (model.lockedInstruments.any(i == instruments_id)) { return false};
-    model.lockedInstruments.append(instrument_id);
-
-    console.log('Renting', student_id, instrument_id);
-
     // Get number of rentals for student_id:
     const rented_instruments = await sql`
         SELECT count(*) FROM public.rentals WHERE person_id = ${student_id} AND end_time IS NULL
@@ -37,18 +32,20 @@ async function rentInstrument(student_id, instrument_id) {
     console.log('rented_instruments', rented_instruments[0].count);
     if (rented_instruments[0].count > 1 || is_instrument_rented[0].count != 0) return;
 
-    const result = await sql`
+    const [result, result2] = await sql.begin(async sql => {
+        const [result] = await sql`
         INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id)
         VALUES (${getCurrentTimeFormatted()}, NULL, ${student_id}, ${instrument_id})
-    `;
-
-    const result2 = await sql`
+    `
+      
+        const [result2] = await sql`
         UPDATE public.instruments
         SET rented = b'1'
         WHERE instrument_id = ${instrument_id}
     `;
-
-
+      
+        return [result, result2]
+      })
 
 
     return result;
@@ -56,21 +53,21 @@ async function rentInstrument(student_id, instrument_id) {
 
 async function terminateRental(student_id, instrument_id) {
 
-    const result = await sql`
+    const [result, result2] = await sql.begin(async sql => {
+        const [result] = await sql`
         UPDATE public.rentals
         SET end_time = ${getCurrentTimeFormatted()}
         WHERE person_id = ${student_id} AND instrument_id = ${instrument_id} AND end_time IS NULL
     `
-
-    // console.log(result);
-
-    const result2 = await sql`
+      
+        const [result2] = await sql`
         UPDATE public.instruments
         SET rented = b'0'
         WHERE instrument_id = ${instrument_id}
     `;
-
-    // console.log(removed);
+      
+        return [result, result2]
+      })
 
     return result;
 }
@@ -82,9 +79,9 @@ async function test() {
         console.log(`ID: ${i.instrument_id} Brand: ${i.brand}, Price: ${i.fee} kr / month`)
     });
     // await terminateRental(26, 21);
-    await rentInstrument(27, 21);
+    // await rentInstrument(27, 21);
     // return;
-    // await terminateRental(27, 21);
+    await terminateRental(27, 21);
     return;
 }
 

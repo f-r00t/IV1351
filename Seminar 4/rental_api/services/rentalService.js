@@ -94,36 +94,40 @@ export async function rentInstrument(student_id, instrument_id) {
 
     if (rented_instruments[0].count > 1) throw new Error('Student is already renting two instruments. Sorry bro!');
 
-    const result = await sql`
+    const [result, result2] = await sql.begin(async sql => {
+      const [result] = await sql`
         INSERT INTO public.rentals (start_time, end_time, person_id, instrument_id)
         VALUES (${getCurrentTimeFormatted()}, NULL, ${student_id}, ${instrument_id})
     `;
-
-    const result2 = await sql`
+    
+      const [result2] = await sql`
         UPDATE public.instruments
         SET rented = b'1'
         WHERE instrument_id = ${instrument_id}
     `;
+    
+      return [result, result2]
+    })
 }
 
 // Terminate a rental
 export async function terminateRental(student_id, instrument_id) {
 
-        const result = await sql`
+        const [result, result2] = await sql.begin(async sql => {
+          const [result] = await sql`
             UPDATE public.rentals
             SET end_time = ${getCurrentTimeFormatted()}
             WHERE person_id = ${student_id} AND instrument_id = ${instrument_id} AND end_time IS NULL
         `
-    
-        // console.log(result);
-    
-        const result2 = await sql`
+        
+          const [result2] = await sql`
             UPDATE public.instruments
             SET rented = b'0'
             WHERE instrument_id = ${instrument_id}
         `;
-    
-        // console.log(removed);
+        
+          return [result, result2]
+        })
     
 }
 
