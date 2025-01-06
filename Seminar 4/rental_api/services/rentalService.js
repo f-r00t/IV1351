@@ -1,9 +1,9 @@
 import {
-  fetchAvailableInstruments,
-  fetchStudents,
-  rentInstrumentTransaction,
-  terminateRentalTransaction,
-  fetchAllOngoingRentals
+  readAvailableInstruments,
+  readStudents,
+  createInstrumentTransaction,
+  deleteRentalTransaction,
+  readAllOngoingRentals
 } from '../db/db.js';
 
 function getCurrentTimeFormatted() {
@@ -62,24 +62,24 @@ export async function getAvailableInstruments(instrument) {
     instrument_type = null;
     break;
 }
-  const instruments = await fetchAvailableInstruments(instrument_type);
+  const instruments = await readAvailableInstruments(instrument_type);
   return instruments;
 }
 
 export async function listStudents() {
-  return await fetchStudents();
+  return await readStudents();
 }
 
 export async function rentInstrument(student_id, instrument_id) {
   const currentTime = getCurrentTimeFormatted();
-  await rentInstrumentTransaction(student_id, instrument_id, currentTime);
+  await createInstrumentTransaction(student_id, instrument_id, currentTime);
 }
 
 export async function terminateRental(student_id, instrument_id) {
   const currentTime = getCurrentTimeFormatted();
-  await terminateRentalTransaction(student_id, instrument_id, currentTime);
+  await deleteRentalTransaction(student_id, instrument_id, currentTime);
 }
 
 export async function getAllRentals() {
-  return await fetchAllOngoingRentals();
+  return await readAllOngoingRentals();
 }

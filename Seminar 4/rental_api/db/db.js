@@ -10,7 +10,7 @@ const sql = postgres({
 
 export default sql;
 
-export async function fetchAvailableInstruments(instrument_type) {
+export async function readAvailableInstruments(instrument_type) {
     return await sql`
       SELECT * FROM public.instruments
       WHERE rented = b'0'
@@ -20,14 +20,14 @@ export async function fetchAvailableInstruments(instrument_type) {
   }
   
 
-export async function fetchStudents() {
+export async function readStudents() {
   return await sql`
     SELECT * FROM public.person
     WHERE person_type = 2
   `;
 }
 
-export async function rentInstrumentTransaction(student_id, instrument_id, currentTime) {
+export async function createInstrumentTransaction(student_id, instrument_id, currentTime) {
     try {
       await sql.begin('read write', async sql => {
 
@@ -71,7 +71,7 @@ export async function rentInstrumentTransaction(student_id, instrument_id, curre
   
   
 
-  export async function terminateRentalTransaction(student_id, instrument_id, currentTime) {
+  export async function deleteRentalTransaction(student_id, instrument_id, currentTime) {
     try {
       await sql.begin('read write', async sql => {
 
@@ -132,7 +132,7 @@ export async function rentInstrumentTransaction(student_id, instrument_id, curre
   }
   
 
-export async function fetchAllOngoingRentals() {
+export async function readAllOngoingRentals() {
   return await sql`
     SELECT * FROM public.rentals
     WHERE end_time IS NULL
