@@ -11,7 +11,7 @@ import { model } from '../model.js';
 export async function listInstruments(req, res) {
     try {
         const { type } = req.query;
-        const instruments = await getAvailableInstruments();
+        const instruments = await getAvailableInstruments(type);
         res.status(200).json(instruments);
     } catch (err) {
         res.status(500).json({ error: err.message });

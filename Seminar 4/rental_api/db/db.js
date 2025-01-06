@@ -10,13 +10,15 @@ const sql = postgres({
 
 export default sql;
 
-export async function fetchAvailableInstruments() {
-  return await sql`
-    SELECT * FROM public.instruments
-    WHERE rented = b'0' 
-    ORDER BY instrument_id ASC
-  `;
-}
+export async function fetchAvailableInstruments(instrument_type) {
+    return await sql`
+      SELECT * FROM public.instruments
+      WHERE rented = b'0'
+      ${instrument_type != null ? sql`AND instrument_type = ${instrument_type}` : sql``}
+      ORDER BY instrument_id ASC
+    `;
+  }
+  
 
 export async function fetchStudents() {
   return await sql`
