@@ -10,9 +10,7 @@ import { model } from '../model.js';
 
 export async function listInstruments(req, res) {
     try {
-        console.log('Listing shit');
-        const { type } = req.query; // Query parameter: ?type=guitar
-        console.log('Listing shit', type);
+        const { type } = req.query;
         const instruments = await getAvailableInstruments();
         res.status(200).json(instruments);
     } catch (err) {
