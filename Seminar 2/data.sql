@@ -5,7 +5,7 @@
 -- Dumped from database version 17.1 (Postgres.app)
 -- Dumped by pg_dump version 17.0
 
--- Started on 2025-01-03 21:43:24 CET
+-- Started on 2025-01-06 19:43:12 CET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -20,7 +20,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 3817 (class 0 OID 16754)
+-- TOC entry 3818 (class 0 OID 16754)
 -- Dependencies: 239
 -- Data for Name: contact_type; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -35,7 +35,7 @@ INSERT INTO public.contact_type OVERRIDING SYSTEM VALUE VALUES (7, 'contact_pers
 
 
 --
--- TOC entry 3819 (class 0 OID 16796)
+-- TOC entry 3820 (class 0 OID 16796)
 -- Dependencies: 241
 -- Data for Name: person_type; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -46,7 +46,7 @@ INSERT INTO public.person_type OVERRIDING SYSTEM VALUE VALUES (3, 'administrator
 
 
 --
--- TOC entry 3796 (class 0 OID 16391)
+-- TOC entry 3797 (class 0 OID 16391)
 -- Dependencies: 218
 -- Data for Name: person; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -114,7 +114,7 @@ INSERT INTO public.person OVERRIDING SYSTEM VALUE VALUES (83, '200001021337', 'S
 
 
 --
--- TOC entry 3802 (class 0 OID 16462)
+-- TOC entry 3803 (class 0 OID 16462)
 -- Dependencies: 224
 -- Data for Name: contact_details; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -270,7 +270,7 @@ INSERT INTO public.contact_details VALUES ('0703456789', 44, 6);
 
 
 --
--- TOC entry 3812 (class 0 OID 16712)
+-- TOC entry 3813 (class 0 OID 16712)
 -- Dependencies: 234
 -- Data for Name: genre; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -288,7 +288,7 @@ INSERT INTO public.genre OVERRIDING SYSTEM VALUE VALUES (10, 'Folk');
 
 
 --
--- TOC entry 3808 (class 0 OID 16652)
+-- TOC entry 3809 (class 0 OID 16652)
 -- Dependencies: 230
 -- Data for Name: instrument_type; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -306,7 +306,7 @@ INSERT INTO public.instrument_type OVERRIDING SYSTEM VALUE VALUES (10, 'Bass Gui
 
 
 --
--- TOC entry 3814 (class 0 OID 16723)
+-- TOC entry 3815 (class 0 OID 16723)
 -- Dependencies: 236
 -- Data for Name: lesson_type; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -317,7 +317,7 @@ INSERT INTO public.lesson_type OVERRIDING SYSTEM VALUE VALUES (3, 'individual');
 
 
 --
--- TOC entry 3810 (class 0 OID 16658)
+-- TOC entry 3811 (class 0 OID 16658)
 -- Dependencies: 232
 -- Data for Name: skill_level; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -328,7 +328,7 @@ INSERT INTO public.skill_level OVERRIDING SYSTEM VALUE VALUES (3, 'Advanced');
 
 
 --
--- TOC entry 3806 (class 0 OID 16646)
+-- TOC entry 3807 (class 0 OID 16646)
 -- Dependencies: 228
 -- Data for Name: lesson; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -385,7 +385,7 @@ INSERT INTO public.lesson OVERRIDING SYSTEM VALUE VALUES (91, NULL, 10, 5, 78, 8
 
 
 --
--- TOC entry 3797 (class 0 OID 16417)
+-- TOC entry 3798 (class 0 OID 16417)
 -- Dependencies: 219
 -- Data for Name: enrollment; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -413,7 +413,7 @@ INSERT INTO public.enrollment VALUES (28, 1);
 
 
 --
--- TOC entry 3804 (class 0 OID 16553)
+-- TOC entry 3805 (class 0 OID 16553)
 -- Dependencies: 226
 -- Data for Name: fee; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -439,7 +439,7 @@ INSERT INTO public.fee VALUES ('2024-12-31 10:00:00+01', 85, 3, 3);
 
 
 --
--- TOC entry 3820 (class 0 OID 16979)
+-- TOC entry 3821 (class 0 OID 16979)
 -- Dependencies: 242
 -- Data for Name: historical_lessons; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -463,7 +463,7 @@ INSERT INTO public.historical_lessons VALUES (82, '2025-03-05 12:00:00+01', 'Ens
 
 
 --
--- TOC entry 3815 (class 0 OID 16738)
+-- TOC entry 3816 (class 0 OID 16738)
 -- Dependencies: 237
 -- Data for Name: instructor_instrument; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -471,7 +471,7 @@ INSERT INTO public.historical_lessons VALUES (82, '2025-03-05 12:00:00+01', 'Ens
 
 
 --
--- TOC entry 3800 (class 0 OID 16430)
+-- TOC entry 3801 (class 0 OID 16430)
 -- Dependencies: 222
 -- Data for Name: instruments; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -486,20 +486,20 @@ INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (30, 'Gemeinhardt'
 INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (31, 'Selmer', 250, B'0', 6);
 INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (32, 'Yamaha', 220, B'0', 6);
 INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (34, 'Yamaha', 90, B'0', 7);
-INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (36, 'Yamaha', 110, B'0', 8);
-INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (38, 'Yamaha', 80, B'0', 9);
-INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (39, 'Ibanez', 75, B'0', 10);
 INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (35, 'Stradivarius', 450, B'0', 8);
-INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (40, 'Fender', 90, B'0', 10);
-INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (24, 'Gibson', 80, B'0', 2);
-INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (25, 'Stradivarius', 500, B'0', 3);
+INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (24, 'Gibson', 80, B'1', 2);
+INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (25, 'Stradivarius', 500, B'1', 3);
+INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (40, 'Fender', 90, B'1', 10);
+INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (39, 'Ibanez', 75, B'1', 10);
+INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (38, 'Yamaha', 80, B'1', 9);
 INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (26, 'Yamaha', 100, B'0', 3);
 INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (37, 'Buffet Crampon', 100, B'0', 9);
 INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (33, 'Bach', 70, B'0', 7);
+INSERT INTO public.instruments OVERRIDING SYSTEM VALUE VALUES (36, 'Yamaha', 110, B'0', 8);
 
 
 --
--- TOC entry 3801 (class 0 OID 16457)
+-- TOC entry 3802 (class 0 OID 16457)
 -- Dependencies: 223
 -- Data for Name: rentals; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -532,10 +532,13 @@ INSERT INTO public.rentals OVERRIDING SYSTEM VALUE VALUES ('2025-01-03 20:59:05.
 INSERT INTO public.rentals OVERRIDING SYSTEM VALUE VALUES ('2025-01-03 21:12:07.719804+01', NULL, 42, 40, 30);
 INSERT INTO public.rentals OVERRIDING SYSTEM VALUE VALUES ('2025-01-03 20:59:33.099799+01', '2025-01-03 21:14:04.161521+01', 41, 25, 27);
 INSERT INTO public.rentals OVERRIDING SYSTEM VALUE VALUES ('2025-01-03 21:14:54.246091+01', NULL, 41, 25, 32);
+INSERT INTO public.rentals OVERRIDING SYSTEM VALUE VALUES ('2025-01-06 18:55:53+01', NULL, 23, 39, 35);
+INSERT INTO public.rentals OVERRIDING SYSTEM VALUE VALUES ('2025-01-06 18:55:57+01', NULL, 23, 38, 36);
+INSERT INTO public.rentals OVERRIDING SYSTEM VALUE VALUES ('2025-01-06 19:31:57+01', '2025-01-06 19:34:54+01', 81, 36, 54);
 
 
 --
--- TOC entry 3798 (class 0 OID 16422)
+-- TOC entry 3799 (class 0 OID 16422)
 -- Dependencies: 220
 -- Data for Name: schedule; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -568,7 +571,7 @@ INSERT INTO public.schedule VALUES ('2024-12-13 13:00:00+01', '2024-12-13 14:30:
 
 
 --
--- TOC entry 3803 (class 0 OID 16469)
+-- TOC entry 3804 (class 0 OID 16469)
 -- Dependencies: 225
 -- Data for Name: sibling; Type: TABLE DATA; Schema: public; Owner: harry
 --
@@ -598,7 +601,7 @@ INSERT INTO public.sibling VALUES (56, 55);
 
 
 --
--- TOC entry 3827 (class 0 OID 0)
+-- TOC entry 3828 (class 0 OID 0)
 -- Dependencies: 238
 -- Name: contact_type_contact_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -607,7 +610,7 @@ SELECT pg_catalog.setval('public.contact_type_contact_type_id_seq', 7, true);
 
 
 --
--- TOC entry 3828 (class 0 OID 0)
+-- TOC entry 3829 (class 0 OID 0)
 -- Dependencies: 233
 -- Name: genre_genre_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -616,7 +619,7 @@ SELECT pg_catalog.setval('public.genre_genre_id_seq', 10, true);
 
 
 --
--- TOC entry 3829 (class 0 OID 0)
+-- TOC entry 3830 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: instrument_type_instrument_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -625,7 +628,7 @@ SELECT pg_catalog.setval('public.instrument_type_instrument_id_seq', 10, true);
 
 
 --
--- TOC entry 3830 (class 0 OID 0)
+-- TOC entry 3831 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: instruments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -634,7 +637,7 @@ SELECT pg_catalog.setval('public.instruments_id_seq', 40, true);
 
 
 --
--- TOC entry 3831 (class 0 OID 0)
+-- TOC entry 3832 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: lesson_lesson_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -643,7 +646,7 @@ SELECT pg_catalog.setval('public.lesson_lesson_id_seq', 1, false);
 
 
 --
--- TOC entry 3832 (class 0 OID 0)
+-- TOC entry 3833 (class 0 OID 0)
 -- Dependencies: 235
 -- Name: lesson_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -652,7 +655,7 @@ SELECT pg_catalog.setval('public.lesson_type_id_seq', 3, true);
 
 
 --
--- TOC entry 3833 (class 0 OID 0)
+-- TOC entry 3834 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -661,7 +664,7 @@ SELECT pg_catalog.setval('public.person_id_seq', 83, true);
 
 
 --
--- TOC entry 3834 (class 0 OID 0)
+-- TOC entry 3835 (class 0 OID 0)
 -- Dependencies: 240
 -- Name: person_type_person_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -670,16 +673,16 @@ SELECT pg_catalog.setval('public.person_type_person_type_id_seq', 3, true);
 
 
 --
--- TOC entry 3835 (class 0 OID 0)
+-- TOC entry 3836 (class 0 OID 0)
 -- Dependencies: 243
 -- Name: rentals_rental_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
 
-SELECT pg_catalog.setval('public.rentals_rental_id_seq', 32, true);
+SELECT pg_catalog.setval('public.rentals_rental_id_seq', 55, true);
 
 
 --
--- TOC entry 3836 (class 0 OID 0)
+-- TOC entry 3837 (class 0 OID 0)
 -- Dependencies: 231
 -- Name: skill_level_skill_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: harry
 --
@@ -687,7 +690,7 @@ SELECT pg_catalog.setval('public.rentals_rental_id_seq', 32, true);
 SELECT pg_catalog.setval('public.skill_level_skill_type_id_seq', 3, true);
 
 
--- Completed on 2025-01-03 21:43:24 CET
+-- Completed on 2025-01-06 19:43:12 CET
 
 --
 -- PostgreSQL database dump complete
